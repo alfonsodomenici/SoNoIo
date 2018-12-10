@@ -15,7 +15,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -49,6 +51,10 @@ public class Sorgente extends BaseEntity {
     @Lob
     private byte[] msi;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(nullable = false)
+    private Impianto impianto;
+
     public Sorgente() {
     }
 
@@ -59,6 +65,35 @@ public class Sorgente extends BaseEntity {
         this.msi = msi;
     }
 
+    /**
+     * Unzip diagrammi 
+     * 
+     * @return 
+     */
+    public String unzipMsi() {
+        if (msi == null || msi.length == 0) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        try {
+            ZipInputStream in = new ZipInputStream(new ByteArrayInputStream(msi));
+            ZipEntry ze = null;
+            while ((ze = in.getNextEntry()) != null) {
+                byte[] buffer = new byte[1024];
+                int len = 0;
+                BufferedReader bf = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+                bf.lines().forEach(v -> sb.append(v).append("\\n"));
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(CellaMS.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            return sb.toString();
+        }
+    }
+
+    /*
+    getter a setter
+     */
     public Float getFreq() {
 
         return freq;
@@ -84,24 +119,12 @@ public class Sorgente extends BaseEntity {
         this.msi = msi;
     }
 
-    public String unzipMsi() {
-        if (msi == null || msi.length == 0) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        try {
-            ZipInputStream in = new ZipInputStream(new ByteArrayInputStream(msi));
-            ZipEntry ze = null;
-            while ((ze = in.getNextEntry()) != null) {
-                byte[] buffer = new byte[1024];
-                int len = 0;
-                BufferedReader bf = new BufferedReader(new InputStreamReader(in, "UTF-8"));
-                bf.lines().forEach(v->sb.append(v).append("\\n"));
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(CellaMS.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            return sb.toString();
-        }
+    public Impianto getImpianto() {
+        return impianto;
     }
+
+    public void setImpianto(Impianto impianto) {
+        this.impianto = impianto;
+    }
+
 }

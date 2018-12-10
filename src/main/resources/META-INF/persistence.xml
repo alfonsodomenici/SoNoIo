@@ -10,6 +10,10 @@
   <persistence-unit name="pupg" transaction-type="JTA">
     <jta-data-source>java:/jboss/datasources/sonoiopg</jta-data-source>
     <class>sonoio.business.rf.entity.Sorgente</class>
+    <class>sonoio.business.rf.entity.Impianto</class>
+    <class>sonoio.business.rf.entity.Traliccio</class>
+    <class>sonoio.business.rf.entity.Marchio</class>
+    <class>sonoio.business.rf.entity.Proprietario</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>

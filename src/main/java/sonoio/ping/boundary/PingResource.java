@@ -1,4 +1,4 @@
-package com.airhacks.ping.boundary;
+package sonoio.ping.boundary;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
