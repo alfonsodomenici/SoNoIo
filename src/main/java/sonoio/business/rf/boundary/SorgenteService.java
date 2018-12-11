@@ -46,7 +46,7 @@ public class SorgenteService {
     public void importOld() {
         cellaMSService.all()
                 .stream()
-                .map(v -> new Sorgente(v.getCella(), v.getFreq(), v.getPercorso(), v.getMsi()))
+                .map(v -> new Sorgente(v.getCella(), new Double(v.getFreq()), v.getPercorso(), v.getMsi()))
                 .forEach(store::save);
     }
 }
