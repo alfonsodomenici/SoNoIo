@@ -5,6 +5,7 @@
  */
 package sonoio.business.rf.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,27 +23,26 @@ import sonoio.BaseEntity;
  */
 @Entity
 @Table(name = "marchio")
-public class Marchio extends BaseEntity{
-    
+public class Marchio extends BaseEntity {
+
     @ManyToOne(optional = false)
     @JoinColumn(nullable = false)
     private Proprietario proprietario;
-    
+
     @ManyToOne(optional = false)
     @JoinColumn(nullable = false)
     private TipologiaImpianto tipologia;
-           
-    @Column(name = "Alfa_tdd")
-    private float alfa_tdd;
+
+    private String denominazione;
+
+    @Column(name = "data_cessato")
+    private LocalDate dataCessato;
     
-    @Column(name = "Data_cessato")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date data_cessato;
-    
+    @Column(name = "alfa_tdd")
+    private Double alfaTdd;
     /*
     getter e setter
-    */
-
+     */
     public TipologiaImpianto getTipologia() {
         return tipologia;
     }
@@ -58,6 +58,30 @@ public class Marchio extends BaseEntity{
     public void setProprietario(Proprietario proprietario) {
         this.proprietario = proprietario;
     }
-    
+
+    public String getDenominazione() {
+        return denominazione;
+    }
+
+    public void setDenominazione(String denominazione) {
+        this.denominazione = denominazione;
+    }
+
+    public LocalDate getDataCessato() {
+        return dataCessato;
+    }
+
+    public void setDataCessato(LocalDate dataCessato) {
+        this.dataCessato = dataCessato;
+    }
+
+    public Double getAlfaTdd() {
+        return alfaTdd;
+    }
+
+    public void setAlfaTdd(Double alfaTdd) {
+        this.alfaTdd = alfaTdd;
+    }
+
     
 }

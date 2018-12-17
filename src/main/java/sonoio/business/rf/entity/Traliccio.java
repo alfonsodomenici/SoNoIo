@@ -5,6 +5,7 @@
  */
 package sonoio.business.rf.entity;
 
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -20,55 +21,64 @@ import sonoio.BaseEntity;
 public class Traliccio extends BaseEntity {
 
     @Size(max = 250)
-    @Column(name = "DENOMINAZIONE")
+    @Column(name = "denominazione",length = 250)
     private String denominazione;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "UTMX")
+    @Column(name = "utmx")
     private Double utmx;
-    @Column(name = "UTMY")
+    @Column(name = "utmy")
     private Double utmy;
-    @Column(name = "QUOTA_SLM")
+    @Column(name = "quota_slm")
     private Integer quotaSlm;
     @Size(max = 50)
-    @Column(name = "COMUNE")
+    @Column(name = "comune")
     private String comune;
-    /*@Size(max = 10)
-    @Column(name = "ISTAT_COMUNE")
+    @Size(max = 10)
+    @Column(name = "istat_comune")
     private String istatComune;
-     */
     @Size(max = 2)
-    @Column(name = "PROVINCIA")
+    @Column(name = "provincia")
     private String provincia;
     @Size(max = 50)
-    @Column(name = "TIPO_VIA")
+    @Column(name = "tipo_via")
     private String tipoVia;
     @Size(max = 150)
-    @Column(name = "NOME_VIA")
+    @Column(name = "nome_via")
     private String nomeVia;
     @Size(max = 15)
-    @Column(name = "N_CIVICO")
+    @Column(name = "n_civico")
     private String nCivico;
     @Size(max = 20)
-    @Column(name = "FOGLIO")
+    @Column(name = "foglio")
     private String foglio;
     @Size(max = 50)
-    @Column(name = "MAPPALE")
+    @Column(name = "mappale")
     private String mappale;
     @Size(max = 250)
-    @Column(name = "PERCORSO")
+    @Column(name = "percorso")
     private String percorso;
     @Size(max = 250)
-    @Column(name = "PERCORSO_FOTO2")
+    @Column(name = "percorso_foto2")
     private String percorsoFoto2;
     @Size(max = 250)
-    @Column(name = "PERCORSO_FOTO3")
+    @Column(name = "percorso_foto3")
     private String percorsoFoto3;
     @Size(max = 250)
-    @Column(name = "NOTE_VARIE")
+    @Column(name = "note_varie")
     private String noteVarie;
-    @Column(name = "STATO")
+    @Column(name = "stato")
     private Short stato;
-    
+    @Column(name = "x_ed50")
+    private Double xEd50;
+    @Column(name = "y_ed50")
+    private Double yEd50;
+    @Column(name = "utente_ultmod")
+    private Short utenteUltmod;
+    @Column(name = "data_ultmod")
+    private LocalDate dataUltmod;
+    @Column(name = "data_cessato")
+    private LocalDate dataCessato;
+
     /*
     getter e setter
     */
@@ -111,6 +121,14 @@ public class Traliccio extends BaseEntity {
 
     public void setComune(String comune) {
         this.comune = comune;
+    }
+
+    public String getIstatComune() {
+        return istatComune;
+    }
+
+    public void setIstatComune(String istatComune) {
+        this.istatComune = istatComune;
     }
 
     public String getProvincia() {
@@ -200,7 +218,45 @@ public class Traliccio extends BaseEntity {
     public void setStato(Short stato) {
         this.stato = stato;
     }
-    
-    
+
+    public Double getxEd50() {
+        return xEd50;
+    }
+
+    public void setxEd50(Double xEd50) {
+        this.xEd50 = xEd50;
+    }
+
+    public Double getyEd50() {
+        return yEd50;
+    }
+
+    public void setyEd50(Double yEd50) {
+        this.yEd50 = yEd50;
+    }
+
+    public Short getUtenteUltmod() {
+        return utenteUltmod;
+    }
+
+    public void setUtenteUltmod(Short utenteUltmod) {
+        this.utenteUltmod = utenteUltmod;
+    }
+
+    public LocalDate getDataUltmod() {
+        return dataUltmod;
+    }
+
+    public void setDataUltmod(LocalDate dataUltmod) {
+        this.dataUltmod = dataUltmod;
+    }
+
+    public LocalDate getDataCessato() {
+        return dataCessato;
+    }
+
+    public void setDataCessato(LocalDate dataCessato) {
+        this.dataCessato = dataCessato;
+    }
 
 }

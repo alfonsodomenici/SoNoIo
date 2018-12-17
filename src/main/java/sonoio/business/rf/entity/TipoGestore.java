@@ -9,13 +9,27 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import sonoio.BaseEntity;
 
-
 /**
  *
  * @author utente
  */
 @Entity
 @Table(name = "tipo_gestore")
-public class TipoGestore  extends BaseEntity{
-        
+public class TipoGestore extends BaseEntity {
+
+    private String denominazione;
+
+    /*
+    getter e setter
+    */
+
+    public String getDenominazione() {
+        return denominazione;
+    }
+
+    public void setDenominazione(String denominazione) {
+        this.denominazione = denominazione;
+    }
+    
+    
 }

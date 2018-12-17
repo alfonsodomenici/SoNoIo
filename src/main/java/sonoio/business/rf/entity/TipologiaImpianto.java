@@ -17,5 +17,19 @@ import sonoio.BaseEntity;
 @Entity
 @Table(name = "tipologia_impianto")
 public class TipologiaImpianto extends BaseEntity {
-    
+
+    @Column(name = "denominazione")
+    private String denominazione;
+
+    /*
+    getter e setter
+     */
+    public String getDenominazione() {
+        return denominazione;
+    }
+
+    public void setDenominazione(String denominazione) {
+        this.denominazione = denominazione;
+    }
+
 }

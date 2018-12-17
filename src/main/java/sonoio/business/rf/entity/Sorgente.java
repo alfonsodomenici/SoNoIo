@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
@@ -35,7 +35,7 @@ import sonoio.BaseEntity;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = Sorgente.FIND_ALL,
-            query = "select e from Sorgente e ORDER BY e.freq")
+            query = "select e from Sorgente e ORDER BY e.frequenza")
     ,
     @NamedQuery(name = Sorgente.FIND_BY_ID,
             query = "select e from Sorgente e where e.id = :id"),})
@@ -108,31 +108,26 @@ public class Sorgente extends BaseEntity {
     @Column(name = "pt_domarp")
     private String ptDomarp;
     @Column(name = "dt_domarp")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dtDomarp;
+    private LocalDate dtDomarp;
     @Size(max = 20)
     @Column(name = "pt_rilpar")
     private String ptRilpar;
     @Column(name = "dt_rilpar")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dtRilpar;
+    private LocalDate dtRilpar;
     @Column(name = "fl_variaz")
     private Short flVariaz;
     @Column(name = "dt_variaz")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dtVariaz;
+    private LocalDate dtVariaz;
     @Size(max = 30)
     @Column(name = "utente_variazione")
     private String utenteVariazione;
     @Column(name = "dt_scadenza")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dtScadenza;
+    private LocalDate dtScadenza;
     @Size(max = 250)
     @Column(name = "note_tecniche")
     private String noteTecniche;
     @Column(name = "dataultmod")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataultmod;
+    private LocalDate dataultmod;
     @Column(name = "id_utente")
     private Short idUtente;
     @Size(max = 2)
@@ -177,8 +172,8 @@ public class Sorgente extends BaseEntity {
     @Column(name = "flag_umts900")
     private Short flagUmts900;
     @Column(name = "dt_umts900")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dtUmts900;
+
+    private LocalDate dtUmts900;
     @Size(max = 20)
     @Column(name = "pt_umts900")
     private String ptUmts900;
@@ -189,14 +184,9 @@ public class Sorgente extends BaseEntity {
     @Column(name = "filemsilenght")
     private Integer filemsilenght;
     @Column(name = "data_ins_msi")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataInsMsi;
-    @Column(name = "data_creazione")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataCreazione;
+    private LocalDate dataInsMsi;
     @Column(name = "data_cessato")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataCessato;
+    private LocalDate dataCessato;
     @Column(name = "alfatdd")
     private Double alfatdd;
     @Column(name = "potenzaridotta")
@@ -243,7 +233,6 @@ public class Sorgente extends BaseEntity {
     /*
     getter a setter
      */
-
     public byte[] getMsi() {
         return msi;
     }
@@ -436,11 +425,11 @@ public class Sorgente extends BaseEntity {
         this.ptDomarp = ptDomarp;
     }
 
-    public Date getDtDomarp() {
+    public LocalDate getDtDomarp() {
         return dtDomarp;
     }
 
-    public void setDtDomarp(Date dtDomarp) {
+    public void setDtDomarp(LocalDate dtDomarp) {
         this.dtDomarp = dtDomarp;
     }
 
@@ -452,11 +441,11 @@ public class Sorgente extends BaseEntity {
         this.ptRilpar = ptRilpar;
     }
 
-    public Date getDtRilpar() {
+    public LocalDate getDtRilpar() {
         return dtRilpar;
     }
 
-    public void setDtRilpar(Date dtRilpar) {
+    public void setDtRilpar(LocalDate dtRilpar) {
         this.dtRilpar = dtRilpar;
     }
 
@@ -468,11 +457,11 @@ public class Sorgente extends BaseEntity {
         this.flVariaz = flVariaz;
     }
 
-    public Date getDtVariaz() {
+    public LocalDate getDtVariaz() {
         return dtVariaz;
     }
 
-    public void setDtVariaz(Date dtVariaz) {
+    public void setDtVariaz(LocalDate dtVariaz) {
         this.dtVariaz = dtVariaz;
     }
 
@@ -484,11 +473,11 @@ public class Sorgente extends BaseEntity {
         this.utenteVariazione = utenteVariazione;
     }
 
-    public Date getDtScadenza() {
+    public LocalDate getDtScadenza() {
         return dtScadenza;
     }
 
-    public void setDtScadenza(Date dtScadenza) {
+    public void setDtScadenza(LocalDate dtScadenza) {
         this.dtScadenza = dtScadenza;
     }
 
@@ -500,11 +489,11 @@ public class Sorgente extends BaseEntity {
         this.noteTecniche = noteTecniche;
     }
 
-    public Date getDataultmod() {
+    public LocalDate getDataultmod() {
         return dataultmod;
     }
 
-    public void setDataultmod(Date dataultmod) {
+    public void setDataultmod(LocalDate dataultmod) {
         this.dataultmod = dataultmod;
     }
 
@@ -668,11 +657,11 @@ public class Sorgente extends BaseEntity {
         this.flagUmts900 = flagUmts900;
     }
 
-    public Date getDtUmts900() {
+    public LocalDate getDtUmts900() {
         return dtUmts900;
     }
 
-    public void setDtUmts900(Date dtUmts900) {
+    public void setDtUmts900(LocalDate dtUmts900) {
         this.dtUmts900 = dtUmts900;
     }
 
@@ -708,27 +697,19 @@ public class Sorgente extends BaseEntity {
         this.filemsilenght = filemsilenght;
     }
 
-    public Date getDataInsMsi() {
+    public LocalDate getDataInsMsi() {
         return dataInsMsi;
     }
 
-    public void setDataInsMsi(Date dataInsMsi) {
+    public void setDataInsMsi(LocalDate dataInsMsi) {
         this.dataInsMsi = dataInsMsi;
     }
 
-    public Date getDataCreazione() {
-        return dataCreazione;
-    }
-
-    public void setDataCreazione(Date dataCreazione) {
-        this.dataCreazione = dataCreazione;
-    }
-
-    public Date getDataCessato() {
+    public LocalDate getDataCessato() {
         return dataCessato;
     }
 
-    public void setDataCessato(Date dataCessato) {
+    public void setDataCessato(LocalDate dataCessato) {
         this.dataCessato = dataCessato;
     }
 
@@ -755,6 +736,5 @@ public class Sorgente extends BaseEntity {
     public void setAlfa24(Double alfa24) {
         this.alfa24 = alfa24;
     }
-    
 
 }

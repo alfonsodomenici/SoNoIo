@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = CellaMS.FIND_ALL,
-            query = "select e from CellaMS e where e.freq is not null ORDER BY e.freq")
+            query = "select e from CellaMS e where e.freq is not null  ORDER BY e.freq")
     ,
    @NamedQuery(name = CellaMS.FIND_BY_ID,
             query = "select e from CellaMS e where e.cella = :id"),})
