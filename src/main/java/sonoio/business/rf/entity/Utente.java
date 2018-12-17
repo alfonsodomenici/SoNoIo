@@ -7,16 +7,21 @@ package sonoio.business.rf.entity;
 
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
+import sonoio.BaseEntity;
 
 /**
  *
  * @author utente
  */
 
-public class Utente {
+@Entity
+@Table(name = "utente")
+public class Utente extends BaseEntity {
     
     @Size(max = 30)
     @Column(name = "Utente")

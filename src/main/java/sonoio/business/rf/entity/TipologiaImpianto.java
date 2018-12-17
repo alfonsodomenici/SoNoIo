@@ -6,11 +6,16 @@
 package sonoio.business.rf.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import sonoio.BaseEntity;
 
 /**
  *
  * @author utente
  */
-public class Tipologia_Impianto {
+@Entity
+@Table(name = "tipologia_impianto")
+public class TipologiaImpianto extends BaseEntity {
     
 }

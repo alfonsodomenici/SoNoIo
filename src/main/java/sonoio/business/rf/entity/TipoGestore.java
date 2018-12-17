@@ -5,11 +5,17 @@
  */
 package sonoio.business.rf.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import sonoio.BaseEntity;
+
 
 /**
  *
  * @author utente
  */
-public class TipoGestore {
+@Entity
+@Table(name = "tipo_gestore")
+public class TipoGestore  extends BaseEntity{
         
 }

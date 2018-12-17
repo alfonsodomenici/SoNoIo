@@ -30,7 +30,7 @@ public class Marchio extends BaseEntity{
     
     @ManyToOne(optional = false)
     @JoinColumn(nullable = false)
-    private Tipologia_Impianto tipologia;
+    private TipologiaImpianto tipologia;
            
     @Column(name = "Alfa_tdd")
     private float alfa_tdd;
@@ -43,11 +43,11 @@ public class Marchio extends BaseEntity{
     getter e setter
     */
 
-    public Tipologia_Impianto getTipologia() {
+    public TipologiaImpianto getTipologia() {
         return tipologia;
     }
 
-    public void setTipologia(Tipologia_Impianto tipologia) {
+    public void setTipologia(TipologiaImpianto tipologia) {
         this.tipologia = tipologia;
     }
 
