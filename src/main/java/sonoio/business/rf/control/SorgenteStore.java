@@ -14,7 +14,6 @@ import javax.persistence.PersistenceContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import sonoio.business.rf.entity.CellaMS;
 import sonoio.business.rf.entity.Sorgente;
 
 /**

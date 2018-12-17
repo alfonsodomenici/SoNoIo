@@ -12,6 +12,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -36,6 +37,18 @@ public class BaseEntity extends AbstractEntity {
 
     protected boolean nascosto;
 
+    @Size(max = 50)
+    @Column(name = "Descrizione")
+    private String descrizione;
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+    
     public LocalDate getCreatoIl() {
         return creatoIl;
     }

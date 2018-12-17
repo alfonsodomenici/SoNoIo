@@ -34,9 +34,11 @@ public class Impianto extends BaseEntity {
 
     @Column(name = "Validato")
     private Short validato;
+    
     @Size(max = 2)
     @Column(name = "Dipartimento")
     private String dipartimento;
+    
     @Column(name = "Tipologia")
     private Short tipologia;
     @Size(max = 50)

@@ -21,6 +21,7 @@ public class AbstractEntity implements Serializable {
     @Id
     private Long id;
     
+    
     @Version
     private Long version;
 
